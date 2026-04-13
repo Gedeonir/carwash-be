@@ -13,7 +13,8 @@ const SERVICES = [
   {
     name: "Basic Wash",
     slug: "basic-wash",
-    description: "A thorough exterior clean that gets your car looking fresh fast. Perfect for regular upkeep.",
+    description:
+      "A thorough exterior clean that gets your car looking fresh fast. Perfect for regular upkeep.",
     price: 5000,
     durationMinutes: 45,
     icon: "💧",
@@ -28,14 +29,25 @@ const SERVICES = [
     ],
     excludes: ["Interior vacuum", "Dashboard wipe", "Wax or polish"],
     addOns: [
-      { name: "Engine Bay Clean", price: 3000, icon: "🔧", description: "Full degreasing and rinse of engine bay" },
-      { name: "Seat Shampoo",     price: 4000, icon: "🪑", description: "Deep shampoo for fabric or leather seats" },
+      {
+        name: "Engine Bay Clean",
+        price: 3000,
+        icon: "🔧",
+        description: "Full degreasing and rinse of engine bay",
+      },
+      {
+        name: "Seat Shampoo",
+        price: 4000,
+        icon: "🪑",
+        description: "Deep shampoo for fabric or leather seats",
+      },
     ],
   },
   {
     name: "Standard Wash",
     slug: "standard-wash",
-    description: "Our bestseller. A complete clean inside and out — everything your car needs to feel brand new.",
+    description:
+      "Our bestseller. A complete clean inside and out — everything your car needs to feel brand new.",
     price: 10000,
     durationMinutes: 60,
     icon: "✨",
@@ -51,15 +63,31 @@ const SERVICES = [
     ],
     excludes: ["Wax or polish", "Leather treatment"],
     addOns: [
-      { name: "Engine Bay Clean",   price: 3000, icon: "🔧", description: "Full degreasing and rinse" },
-      { name: "Seat Shampoo",       price: 4000, icon: "🪑", description: "Deep shampoo for fabric or leather seats" },
-      { name: "Odour Eliminator",   price: 2000, icon: "🌿", description: "Ozone treatment for stubborn smells" },
+      {
+        name: "Engine Bay Clean",
+        price: 3000,
+        icon: "🔧",
+        description: "Full degreasing and rinse",
+      },
+      {
+        name: "Seat Shampoo",
+        price: 4000,
+        icon: "🪑",
+        description: "Deep shampoo for fabric or leather seats",
+      },
+      {
+        name: "Odour Eliminator",
+        price: 2000,
+        icon: "🌿",
+        description: "Ozone treatment for stubborn smells",
+      },
     ],
   },
   {
     name: "Premium Detail",
     slug: "premium-detail",
-    description: "A full professional detail that leaves your car showroom-ready. Wax, polish, and every nook cleaned.",
+    description:
+      "A full professional detail that leaves your car showroom-ready. Wax, polish, and every nook cleaned.",
     price: 18000,
     durationMinutes: 90,
     icon: "🏆",
@@ -76,8 +104,18 @@ const SERVICES = [
     ],
     excludes: [],
     addOns: [
-      { name: "Ceramic Coating", price: 15000, icon: "💎", description: "Long-lasting paint protection (6–12 months)" },
-      { name: "Seat Shampoo",    price: 4000,  icon: "🪑", description: "Deep shampoo for fabric or leather seats" },
+      {
+        name: "Ceramic Coating",
+        price: 15000,
+        icon: "💎",
+        description: "Long-lasting paint protection (6–12 months)",
+      },
+      {
+        name: "Seat Shampoo",
+        price: 4000,
+        icon: "🪑",
+        description: "Deep shampoo for fabric or leather seats",
+      },
     ],
   },
 ];
@@ -113,25 +151,119 @@ const seed = async () => {
 
   // ── Washers ────────────────────────────────────────────
   const washersData = [
-    { name: "Jean Nkurunziza", email: "jean@ikinamba.com",   phone: "+250 788 111 111", zone: "Kimihurura", rating: 4.9, totalReviews: 312 },
-    { name: "Pascal Mugisha",  email: "pascal@ikinamba.com", phone: "+250 788 222 222", zone: "Kiyovu",      rating: 4.8, totalReviews: 204 },
-    { name: "Eric Kayumba",    email: "eric@ikinamba.com",   phone: "+250 788 333 333", zone: "Remera",      rating: 4.7, totalReviews: 178 },
-    { name: "Alice Mutoni",    email: "alice@ikinamba.com",  phone: "+250 788 444 444", zone: "CBD",         rating: 4.9, totalReviews: 289 },
+    {
+      name: "Jean Nkurunziza",
+      email: "jean@ikinamba.com",
+      phone: "+250 788 111 111",
+      zone: "Kimihurura",
+      rating: 4.9,
+      totalReviews: 312,
+      savedLocations: [
+        {
+          label: "Primary", // "Home", "Work", custom
+          address: "KG 14 Avenue, Gasabo District, Kigali City, Rwanda",
+          coordinates: {
+            lat: "-1.9297390",
+            lng: "30.0621269",
+          },
+        },
+      ],
+    },
+    {
+      name: "Pascal Mugisha",
+      email: "pascal@ikinamba.com",
+      phone: "+250 788 222 222",
+      zone: "Kiyovu",
+      rating: 4.8,
+      totalReviews: 204,
+      savedLocations: [
+        {
+          label: "Primary",
+          address: "KG 14 Avenue, Gasabo District, Kigali City, Rwanda",
+          coordinates: {
+            lat: "-1.9297390",
+            lng: "30.0621269",
+          },
+        },
+      ],
+
+    },
+    {
+      name: "Eric Kayumba",
+      email: "eric@ikinamba.com",
+      phone: "+250 788 333 333",
+      zone: "Remera",
+      rating: 4.7,
+      totalReviews: 178,
+      savedLocations: [
+        {
+          label: "Primary",
+          address: "KG 14 Avenue, Gasabo District, Kigali City, Rwanda",
+          coordinates: {
+            lat: "-1.9297390",
+            lng: "30.0621269",
+          },
+        },
+      ],
+    },
+    {
+      name: "Alice Mutoni",
+      email: "alice@ikinamba.com",
+      phone: "+250 788 444 444",
+      zone: "CBD",
+      rating: 4.9,
+      totalReviews: 289,
+       savedLocations: [
+        {
+          label: "Primary",
+          address: "KG 14 Avenue, Gasabo District, Kigali City, Rwanda",
+          coordinates: {
+            lat: "-1.9297390",
+            lng: "30.0621269",
+          },
+        },
+      ],
+    },
   ];
 
   const washers = await Promise.all(
     washersData.map((w) =>
-      User.create({ ...w, password: "Washer123!", role: "washer", isAvailable: true })
-    )
+      User.create({
+        ...w,
+        password: "Washer123!",
+        role: "washer",
+        isAvailable: true,
+      }),
+    ),
   );
   console.log(`✅ Created ${washers.length} washers`);
 
   // ── Customers ──────────────────────────────────────────
   const customersData = [
-    { name: "Amira Kagabo",      email: "amira@example.com",   phone: "+250 788 555 111", loyaltyPoints: 70 },
-    { name: "James Mukuralinda", email: "james@example.com",   phone: "+250 788 555 222", loyaltyPoints: 30 },
-    { name: "Claudine Uwera",    email: "claudine@example.com",phone: "+250 788 555 333", loyaltyPoints: 200 },
-    { name: "David Bizimana",    email: "david@example.com",   phone: "+250 788 555 444", loyaltyPoints: 10 },
+    {
+      name: "Amira Kagabo",
+      email: "amira@example.com",
+      phone: "+250 788 555 111",
+      loyaltyPoints: 70,
+    },
+    {
+      name: "James Mukuralinda",
+      email: "james@example.com",
+      phone: "+250 788 555 222",
+      loyaltyPoints: 30,
+    },
+    {
+      name: "Claudine Uwera",
+      email: "claudine@example.com",
+      phone: "+250 788 555 333",
+      loyaltyPoints: 200,
+    },
+    {
+      name: "David Bizimana",
+      email: "david@example.com",
+      phone: "+250 788 555 444",
+      loyaltyPoints: 10,
+    },
   ];
 
   const customers = await Promise.all(
@@ -141,46 +273,72 @@ const seed = async () => {
         password: "Customer123!",
         role: "customer",
         savedLocations: [
-          { label: "Home", address: "KG 9 Ave, Kimihurura, Kigali", coordinates: { lat: -1.9536, lng: 30.0622 } },
-          { label: "Work", address: "KN 4 St, CBD, Kigali",         coordinates: { lat: -1.9441, lng: 30.0619 } },
+          {
+            label: "Home",
+            address: "KG 9 Ave, Kimihurura, Kigali",
+            coordinates: { lat: -1.9536, lng: 30.0622 },
+          },
+          {
+            label: "Work",
+            address: "KN 4 St, CBD, Kigali",
+            coordinates: { lat: -1.9441, lng: 30.0619 },
+          },
         ],
         savedCars: [
-          { plate: "RAB 123A", model: "Toyota RAV4", color: "Silver", year: "2022" },
+          {
+            plate: "RAB 123A",
+            model: "Toyota RAV4",
+            color: "Silver",
+            year: "2022",
+          },
         ],
-      })
-    )
+      }),
+    ),
   );
   console.log(`✅ Created ${customers.length} customers`);
 
   // ── Bookings ───────────────────────────────────────────
   const now = new Date();
-  const tomorrow = new Date(now); tomorrow.setDate(now.getDate() + 1);
-  const yesterday = new Date(now); yesterday.setDate(now.getDate() - 1);
-  const lastWeek = new Date(now); lastWeek.setDate(now.getDate() - 7);
+  const tomorrow = new Date(now);
+  tomorrow.setDate(now.getDate() + 1);
+  const yesterday = new Date(now);
+  yesterday.setDate(now.getDate() - 1);
+  const lastWeek = new Date(now);
+  lastWeek.setDate(now.getDate() - 7);
 
   const bookingsData = [
     // Active booking (in-progress)
     {
       customer: customers[0]._id,
-      washer:   washers[0]._id,
-      service:  services[1]._id,  // Standard
+      washer: washers[0]._id,
+      service: services[1]._id, // Standard
       servicePrice: 10000,
-      totalAmount:  10000,
+      totalAmount: 10000,
       scheduledDate: now,
       scheduledTime: "10:00",
-      location: { label: "Home", address: "KG 9 Ave, Kimihurura, Kigali", coordinates: { lat: -1.9536, lng: 30.0622 } },
+      location: {
+        label: "Home",
+        address: "KG 9 Ave, Kimihurura, Kigali",
+        coordinates: { lat: -1.9536, lng: 30.0622 },
+      },
       paymentMethod: "momo",
       paymentStatus: "paid",
       status: "in-progress",
-      timeline: { confirmedAt: now, assignedAt: now, headingAt: now, arrivedAt: now, startedAt: now },
+      timeline: {
+        confirmedAt: now,
+        assignedAt: now,
+        headingAt: now,
+        arrivedAt: now,
+        startedAt: now,
+      },
     },
     // Upcoming booking (confirmed)
     {
       customer: customers[1]._id,
-      washer:   washers[1]._id,
-      service:  services[0]._id,  // Basic
+      washer: washers[1]._id,
+      service: services[0]._id, // Basic
       servicePrice: 5000,
-      totalAmount:  5000,
+      totalAmount: 5000,
       scheduledDate: tomorrow,
       scheduledTime: "09:00",
       location: { label: "Work", address: "KN 4 St, CBD, Kigali" },
@@ -192,11 +350,11 @@ const seed = async () => {
     // Upcoming (unassigned)
     {
       customer: customers[2]._id,
-      service:  services[2]._id,  // Premium
+      service: services[2]._id, // Premium
       servicePrice: 18000,
       addOns: [{ name: "Seat Shampoo", price: 4000 }],
       addOnsTotal: 4000,
-      totalAmount:  22000,
+      totalAmount: 22000,
       scheduledDate: tomorrow,
       scheduledTime: "14:00",
       location: { label: "Home", address: "KG 101 St, Nyamirambo, Kigali" },
@@ -208,8 +366,8 @@ const seed = async () => {
     // Completed booking (yesterday) - will get a review
     {
       customer: customers[0]._id,
-      washer:   washers[0]._id,
-      service:  services[2]._id,  // Premium
+      washer: washers[0]._id,
+      service: services[2]._id, // Premium
       servicePrice: 18000,
       totalAmount: 18000,
       scheduledDate: yesterday,
@@ -219,15 +377,19 @@ const seed = async () => {
       paymentStatus: "paid",
       status: "completed",
       timeline: {
-        confirmedAt: yesterday, assignedAt: yesterday, headingAt: yesterday,
-        arrivedAt: yesterday, startedAt: yesterday, completedAt: yesterday,
+        confirmedAt: yesterday,
+        assignedAt: yesterday,
+        headingAt: yesterday,
+        arrivedAt: yesterday,
+        startedAt: yesterday,
+        completedAt: yesterday,
       },
     },
     // Completed (last week)
     {
       customer: customers[1]._id,
-      washer:   washers[2]._id,
-      service:  services[1]._id,  // Standard
+      washer: washers[2]._id,
+      service: services[1]._id, // Standard
       servicePrice: 10000,
       totalAmount: 10000,
       scheduledDate: lastWeek,
@@ -237,14 +399,18 @@ const seed = async () => {
       paymentStatus: "paid",
       status: "completed",
       timeline: {
-        confirmedAt: lastWeek, assignedAt: lastWeek, headingAt: lastWeek,
-        arrivedAt: lastWeek, startedAt: lastWeek, completedAt: lastWeek,
+        confirmedAt: lastWeek,
+        assignedAt: lastWeek,
+        headingAt: lastWeek,
+        arrivedAt: lastWeek,
+        startedAt: lastWeek,
+        completedAt: lastWeek,
       },
     },
     // Cancelled
     {
       customer: customers[3]._id,
-      service:  services[0]._id,
+      service: services[0]._id,
       servicePrice: 5000,
       totalAmount: 5000,
       scheduledDate: lastWeek,
@@ -268,24 +434,28 @@ const seed = async () => {
   const reviews = await Promise.all(
     completedBookings.map((b, i) =>
       Review.create({
-        booking:  b._id,
+        booking: b._id,
         customer: b.customer,
-        washer:   b.washer,
-        rating:   i === 0 ? 5 : 4,
-        tags:     i === 0 ? ["Great service", "On time", "Very clean", "Friendly"] : ["On time", "Thorough"],
-        comment:  i === 0
-          ? "Jean was fantastic! My car looks showroom-new. Will book every week."
-          : "Good service, on time and thorough.",
+        washer: b.washer,
+        rating: i === 0 ? 5 : 4,
+        tags:
+          i === 0
+            ? ["Great service", "On time", "Very clean", "Friendly"]
+            : ["On time", "Thorough"],
+        comment:
+          i === 0
+            ? "Jean was fantastic! My car looks showroom-new. Will book every week."
+            : "Good service, on time and thorough.",
         tip: i === 0 ? 1000 : 0,
-      })
-    )
+      }),
+    ),
   );
 
   // Link reviews to bookings
   await Promise.all(
     completedBookings.map((b, i) =>
-      Booking.findByIdAndUpdate(b._id, { review: reviews[i]._id })
-    )
+      Booking.findByIdAndUpdate(b._id, { review: reviews[i]._id }),
+    ),
   );
   console.log(`✅ Created ${reviews.length} reviews`);
 

@@ -80,7 +80,7 @@ reviews.post("/",    protect, reviewRules, validate, createReview);
 // ══════════════════════════════════════════════════════════
 const users = express.Router();
 users.get    ("/",           protect, authorize("admin"), paginationRules, validate, getUsers);
-users.get    ("/washers",    protect, authorize("admin"), getWashers);
+users.get    ("/washers",    getWashers);
 users.get    ("/:id",        protect, authorize("admin"), getUser);
 users.put    ("/:id",        protect, authorize("admin"), updateUser);
 

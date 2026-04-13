@@ -48,6 +48,10 @@ const serviceSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    durationMinutes: {
+      type: Number,
+      required: true,
+    },
     sortOrder: {
       type: Number,
       default: 0,
