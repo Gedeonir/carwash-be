@@ -45,14 +45,20 @@ const login = asyncHandler(async (req, res) => {
 // ── POST /api/auth/guest ──────────────────────────────────
 // Creates a temporary guest user for booking without full registration
 const guestLogin = asyncHandler(async (req, res) => {
-  const { name, phone } = req.body;
+  const { name, phone,email } = req.body;  
 
-  if (!name || !phone) {
-    return badRequest(res, "Name and phone are required for guest access");
+  if (!name || !phone || !email) {
+    return badRequest(res, "Name, Email and phone are required for guest access");
+  }
+
+  const existingGuest = await User.findOne({ email, isGuest: true });
+  if (existingGuest) {
+    return sendTokenResponse(existingGuest, 200, res);
   }
 
   const guest = await User.create({
     name,
+    email,
     phone,
     isGuest: true,
     role: "customer",
