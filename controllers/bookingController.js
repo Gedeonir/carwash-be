@@ -27,8 +27,6 @@ const createBooking = asyncHandler(async (req, res) => {
     location,
     paymentMethod,
     tip = 0,
-    guestName,
-    guestPhone,
   } = req.body;
 
   const service = await Service.findById(serviceId);
@@ -55,10 +53,10 @@ const createBooking = asyncHandler(async (req, res) => {
     isGuest: req.user.isGuest,
   };
 
-  if (req.user.isGuest) {
-    bookingData.guestName = guestName || req.user.name;
-    bookingData.guestPhone = guestPhone || req.user.phone;
-  }
+  // if (req.user.isGuest) {
+  //   bookingData.guestName = guestName || req.user.name;
+  //   bookingData.guestPhone = guestPhone || req.user.phone;
+  // }
 
   const booking = await Booking.create(bookingData);
   await booking.populate(["service", "customer"]);

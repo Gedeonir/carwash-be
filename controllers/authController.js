@@ -2,7 +2,7 @@ const crypto = require("crypto");
 const User = require("../models/User");
 const { sendTokenResponse, verifyRefreshToken, generateAccessToken } = require("../utils/jwt");
 const { success, created, unauthorized, badRequest, notFound } = require("../utils/response");
-const { sendEmail, passwordResetEmail } = require("../utils/email");
+const { sendEmail, passwordResetEmail, confirmAccount } = require("../utils/email");
 const { asyncHandler } = require("../middlewares/error");
 
 // ── POST /api/auth/register ───────────────────────────────
@@ -15,6 +15,9 @@ const register = asyncHandler(async (req, res) => {
   }
 
   const user = await User.create({ name, email, password, phone, role: "customer" });
+
+  const confirmUrl = `${process.env.CLIENT_URL}/confirm-account/${user._id}`;
+  await sendEmail(confirmAccount(user, confirmUrl));
   sendTokenResponse(user, 201, res);
 });
 

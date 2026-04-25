@@ -150,81 +150,154 @@ const seed = async () => {
   console.log(`✅ Created admin: ${admin.email} / password: Admin123!`);
 
   // ── Washers ────────────────────────────────────────────
-  const washersData = [
-    {
-      name: "Jean Nkurunziza",
-      email: "jean@ikinamba.com",
-      phone: "+250 788 111 111",
-      zone: "Kimihurura",
-      rating: 4.9,
-      totalReviews: 312,
-      savedLocations: [
-        {
-          label: "Primary", // "Home", "Work", custom
-          address: "KG 14 Avenue, Gasabo District, Kigali City, Rwanda",
-          coordinates: {
-            lat: "-1.9297390",
-            lng: "30.0621269",
-          },
-        },
-      ],
-    },
-    {
-      name: "Pascal Mugisha",
-      email: "pascal@ikinamba.com",
-      phone: "+250 788 222 222",
-      zone: "Kiyovu",
-      rating: 4.8,
-      totalReviews: 204,
-      savedLocations: [
-        {
-          label: "Primary",
-          address: "KG 14 Avenue, Gasabo District, Kigali City, Rwanda",
-          coordinates: {
-            lat: "-1.9297390",
-            lng: "30.0621269",
-          },
-        },
-      ],
+ const washersData = [
+  {
+    name: "Jean Nkurunziza",
+    email: "jean@ikinamba.com",
+    phone: "+250 788 111 111",
+    zone: "Kimihurura",
+    rating: 4.9,
+    totalReviews: 312,
+    savedLocations: [
+      {
+        label: "Home",
+        address: "KG 14 Ave, Kimihurura, Gasabo District, Kigali",
+        coordinates: { lat: -1.9456, lng: 30.0615 },
+      },
+      {
+        label: "Work",
+        address: "Kigali Convention Centre Area, Kimihurura",
+        coordinates: { lat: -1.9502, lng: 30.0591 },
+      },
+    ],
+  },
 
-    },
-    {
-      name: "Eric Kayumba",
-      email: "eric@ikinamba.com",
-      phone: "+250 788 333 333",
-      zone: "Remera",
-      rating: 4.7,
-      totalReviews: 178,
-      savedLocations: [
-        {
-          label: "Primary",
-          address: "KG 14 Avenue, Gasabo District, Kigali City, Rwanda",
-          coordinates: {
-            lat: "-1.9297390",
-            lng: "30.0621269",
-          },
-        },
-      ],
-    },
-    {
-      name: "Alice Mutoni",
-      email: "alice@ikinamba.com",
-      phone: "+250 788 444 444",
-      zone: "CBD",
-      rating: 4.9,
-      totalReviews: 289,
-       savedLocations: [
-        {
-          label: "Primary",
-          address: "KG 14 Avenue, Gasabo District, Kigali City, Rwanda",
-          coordinates: {
-            lat: "-1.9297390",
-            lng: "30.0621269",
-          },
-        },
-      ],
-    },
-  ];
+  {
+    name: "Pascal Mugisha",
+    email: "pascal@ikinamba.com",
+    phone: "+250 788 222 222",
+    zone: "Kiyovu",
+    rating: 4.8,
+    totalReviews: 204,
+    savedLocations: [
+      {
+        label: "Home",
+        address: "KN 6 Ave, Kiyovu, Nyarugenge District, Kigali",
+        coordinates: { lat: -1.9490, lng: 30.0582 },
+      },
+      {
+        label: "Work",
+        address: "Downtown Kigali CBD, near UTC",
+        coordinates: { lat: -1.9445, lng: 30.0610 },
+      },
+    ],
+  },
+
+  {
+    name: "Eric Kayumba",
+    email: "eric@ikinamba.com",
+    phone: "+250 788 333 333",
+    zone: "Remera",
+    rating: 4.7,
+    totalReviews: 178,
+    savedLocations: [
+      {
+        label: "Home",
+        address: "KG 11 Ave, Remera, Gasabo District, Kigali",
+        coordinates: { lat: -1.9552, lng: 30.1034 },
+      },
+      {
+        label: "Work",
+        address: "Amahoro Stadium Area, Remera",
+        coordinates: { lat: -1.9578, lng: 30.1092 },
+      },
+    ],
+  },
+
+  {
+    name: "Alice Mutoni",
+    email: "alice@ikinamba.com",
+    phone: "+250 788 444 444",
+    zone: "CBD",
+    rating: 4.9,
+    totalReviews: 289,
+    savedLocations: [
+      {
+        label: "Home",
+        address: "KN 3 St, Nyarugenge CBD, Kigali",
+        coordinates: { lat: -1.9440, lng: 30.0608 },
+      },
+      {
+        label: "Work",
+        address: "Rwanda Development Board Area, Kigali",
+        coordinates: { lat: -1.9425, lng: 30.0625 },
+      },
+    ],
+  },
+
+  {
+    name: "David Uwizeye",
+    email: "david@ikinamba.com",
+    phone: "+250 788 555 555",
+    zone: "Kicukiro",
+    rating: 4.6,
+    totalReviews: 156,
+    savedLocations: [
+      {
+        label: "Home",
+        address: "KK 15 Rd, Kicukiro Center, Kigali",
+        coordinates: { lat: -1.9704, lng: 30.1047 },
+      },
+      {
+        label: "Work",
+        address: "Nyanza Bus Terminal Area, Kicukiro",
+        coordinates: { lat: -1.9801, lng: 30.1105 },
+      },
+    ],
+  },
+
+  {
+    name: "Grace Uwase",
+    email: "grace@ikinamba.com",
+    phone: "+250 788 666 666",
+    zone: "Nyamirambo",
+    rating: 4.8,
+    totalReviews: 221,
+    savedLocations: [
+      {
+        label: "Home",
+        address: "KN 2 St, Nyamirambo Sector, Kigali",
+        coordinates: { lat: -1.9709, lng: 30.0432 },
+      },
+      {
+        label: "Work",
+        address: "Nyamirambo Market Area",
+        coordinates: { lat: -1.9735, lng: 30.0478 },
+      },
+    ],
+  },
+
+  {
+    name: "Emmanuel Habimana",
+    email: "emmanuel@ikinamba.com",
+    phone: "+250 788 777 777",
+    zone: "Gisozi",
+    rating: 4.7,
+    totalReviews: 190,
+    savedLocations: [
+      {
+        label: "Home",
+        address: "KG 9 Ave, Gisozi, Gasabo District, Kigali",
+        coordinates: { lat: -1.9305, lng: 30.0892 },
+      },
+      {
+        label: "Work",
+        address: "Gisozi Industrial Zone",
+        coordinates: { lat: -1.9278, lng: 30.0934 },
+      },
+    ],
+  },
+];
 
   const washers = await Promise.all(
     washersData.map((w) =>
