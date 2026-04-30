@@ -37,7 +37,6 @@ const createBooking = asyncHandler(async (req, res) => {
   // Calculate add-ons total
   const addOnsTotal = addOns.reduce((sum, a) => sum + (a.price || 0), 0);
   const totalAmount = service.price + addOnsTotal + Number(tip);
-
   const bookingData = {
     service: service._id,
     servicePrice: service.price,

@@ -1,5 +1,5 @@
 const User = require("../models/User");
-const { success, notFound, paginated } = require("../utils/response");
+const { success, notFound, paginated, badRequest, created } = require("../utils/response");
 const { asyncHandler } = require("../middlewares/error");
 
 // ══════════════════════════════════════════════════════════
@@ -11,10 +11,11 @@ const getUsers = asyncHandler(async (req, res) => {
   const skip = (page - 1) * limit;
   const filter = {};
   if (role) filter.role = role;
-  if (search) filter.$or = [
-    { name: { $regex: search, $options: "i" } },
-    { email: { $regex: search, $options: "i" } },
-  ];
+  if (search)
+    filter.$or = [
+      { name: { $regex: search, $options: "i" } },
+      { email: { $regex: search, $options: "i" } },
+    ];
 
   const [users, total] = await Promise.all([
     User.find(filter).sort({ createdAt: -1 }).skip(skip).limit(Number(limit)),
@@ -31,11 +32,24 @@ const getUser = asyncHandler(async (req, res) => {
 });
 
 const updateUser = asyncHandler(async (req, res) => {
-  const allowed = ["name", "email", "phone", "role", "isActive", "zone", "isAvailable"];
+  const allowed = [
+    "name",
+    "email",
+    "phone",
+    "role",
+    "isActive",
+    "zone",
+    "isAvailable",
+  ];
   const updates = {};
-  allowed.forEach((f) => { if (req.body[f] !== undefined) updates[f] = req.body[f]; });
+  allowed.forEach((f) => {
+    if (req.body[f] !== undefined) updates[f] = req.body[f];
+  });
 
-  const user = await User.findByIdAndUpdate(req.params.id, updates, { new: true, runValidators: true });
+  const user = await User.findByIdAndUpdate(req.params.id, updates, {
+    new: true,
+    runValidators: true,
+  });
   if (!user) return notFound(res, "User not found");
   success(res, { user }, "User updated");
 });
@@ -50,6 +64,49 @@ const getWashers = asyncHandler(async (req, res) => {
   success(res, { washers });
 });
 
+const createWasher = asyncHandler(async (req, res) => {
+  const { name, email, phone, password, zone, id,location } = req.body;
+
+  if (!name || !email || !password || !id || !phone) {
+    return badRequest(res, "Name, email,id and password are required");
+  }
+
+  const idExist=await User.findOne({ ID: id.trim() });
+   if (idExist) {
+    return badRequest(res, "A user with this ID already exists");
+  }
+
+  const existing = await User.findOne({ email: email.toLowerCase().trim() });
+  if (existing) {
+    return badRequest(res, "A user with this email already exists");
+  }
+
+  const washer = await User.create({
+    name: name.trim(),
+    email: email.toLowerCase().trim(),
+    phone: phone?.trim(),
+    password,
+    savedLocations: location,
+    zone:zone,
+    role: "washer",
+    isAvailable: true,
+    isActive: true,
+    rating: 0,
+    totalReviews: 0,
+    ID: id,
+  });
+
+  // Don't return password
+  const safe = washer.toObject();
+  delete safe.password;
+
+  created(res, { washer: safe }, "Washer created successfully");
+});
+
 module.exports = {
-  getUsers, getUser, updateUser, getWashers,
+  getUsers,
+  getUser,
+  updateUser,
+  getWashers,
+  createWasher,
 };

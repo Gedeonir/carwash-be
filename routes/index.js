@@ -13,7 +13,7 @@ const {
 } = require("../controllers/reviewController");
 
 const {
-  getUsers, getUser, updateUser, getWashers,
+  getUsers, getUser, updateUser, getWashers,createWasher
 } = require("../controllers/userController");
 
 const {
@@ -79,6 +79,7 @@ reviews.post("/",    protect, reviewRules, validate, createReview);
 // USERS  /api/users  (admin only)
 // ══════════════════════════════════════════════════════════
 const users = express.Router();
+users.post   ("/",           protect, authorize("admin"), createWasher);
 users.get    ("/",           protect, authorize("admin"), paginationRules, validate, getUsers);
 users.get    ("/washers",    getWashers);
 users.get    ("/:id",        protect, authorize("admin"), getUser);

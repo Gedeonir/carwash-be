@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       unique: true,
-      sparse: true, // allows null for guest users
+      sparse: true,
       lowercase: true,
       trim: true,
       match: [/^\S+@\S+\.\S+$/, "Invalid email format"],
@@ -20,6 +20,13 @@ const userSchema = new mongoose.Schema(
     phone: {
       type: String,
       trim: true,
+    },
+    ID: {
+      type: Number,
+      unique: true,
+      required: [true, "ID is required"],
+      maxlength: [16, "ID number cannot exceed 80 characters"],
+      default: 0,
     },
     password: {
       type: String,
@@ -68,7 +75,13 @@ const userSchema = new mongoose.Schema(
       default: "bronze",
     },
     // Washer-specific
-    zone: { type: String },
+    zone: {
+      address: { type: String },
+      coordinates: {
+        lat: { type: Number },
+        lng: { type: Number },
+      },
+    },
     isAvailable: { type: Boolean, default: true },
     rating: { type: Number, default: 0, min: 0, max: 5 },
     totalReviews: { type: Number, default: 0 },
@@ -76,7 +89,8 @@ const userSchema = new mongoose.Schema(
     refreshToken: { type: String, select: false },
     passwordResetToken: { type: String, select: false },
     passwordResetExpires: { type: Date, select: false },
-    isActive: { type: Boolean, default: false },
+    isActive: { type: Boolean, default: true },
+    isVerified: { type: Boolean, default: false },
     lastLogin: { type: Date },
 
     // Notification preferences
@@ -91,7 +105,7 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
-  }
+  },
 );
 
 // ── Indexes ───────────────────────────────────────────────

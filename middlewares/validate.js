@@ -4,7 +4,7 @@ const { badRequest } = require("../utils/response");
 // Run validation result check
 const validate = (req, res, next) => {
   const errors = validationResult(req);
-  if (!errors.isEmpty()) {
+  if (!errors.isEmpty()) {    
     return badRequest(res, "Validation failed", errors.array().map((e) => e.msg));
   }
   next();
