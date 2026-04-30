@@ -23,11 +23,9 @@ const userSchema = new mongoose.Schema(
     },
     ID: {
       type: Number,
-      unique: true,
-      required: [true, "ID is required"],
       maxlength: [16, "ID number cannot exceed 80 characters"],
-      default: 0,
     },
+    
     password: {
       type: String,
       minlength: [6, "Password must be at least 6 characters"],
