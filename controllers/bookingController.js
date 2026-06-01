@@ -27,6 +27,7 @@ const createBooking = asyncHandler(async (req, res) => {
     location,
     paymentMethod,
     tip = 0,
+    washer
   } = req.body;
 
   const service = await Service.findById(serviceId);
@@ -50,6 +51,7 @@ const createBooking = asyncHandler(async (req, res) => {
     paymentMethod,
     customer: req.user._id,
     isGuest: req.user.isGuest,
+    washer
   };
 
   // if (req.user.isGuest) {
@@ -113,6 +115,9 @@ const getBooking = asyncHandler(async (req, res) => {
     .populate("review");
 
   if (!booking) return notFound(res, "Booking not found");
+
+    console.log("Fetching booking with ID:", booking);
+
 
   // Customers can only see their own bookings
   if (

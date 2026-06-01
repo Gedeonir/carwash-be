@@ -13,7 +13,8 @@ const {
 } = require("../controllers/reviewController");
 
 const {
-  getUsers, getUser, updateUser, getWashers,createWasher
+  getUsers, getUser, updateUser, getWashers,createWasher,
+  getWasherSuggestions
 } = require("../controllers/userController");
 
 const {
@@ -76,12 +77,13 @@ reviews.get ("/",    paginationRules, validate, getReviews);
 reviews.post("/",    protect, reviewRules, validate, createReview);
 
 // ══════════════════════════════════════════════════════════
-// USERS  /api/users  (admin only)
+// USERS  /api/users
 // ══════════════════════════════════════════════════════════
 const users = express.Router();
 users.post   ("/",           protect, authorize("admin"), createWasher);
 users.get    ("/",           protect, authorize("admin"), paginationRules, validate, getUsers);
 users.get    ("/washers",    getWashers);
+users.post   ("/washer/suggestion",getWasherSuggestions)
 users.get    ("/:id",        protect, authorize("admin"), getUser);
 users.put    ("/:id",        protect, authorize("admin"), updateUser);
 

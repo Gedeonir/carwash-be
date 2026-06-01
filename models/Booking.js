@@ -34,7 +34,7 @@ const bookingSchema = new mongoose.Schema(
       required: [true, "Scheduled date is required"],
     },
     scheduledTime: {
-      type: String, // "10:00"
+      type: String,
       required: true,
     },
 

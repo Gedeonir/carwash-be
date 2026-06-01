@@ -170,6 +170,10 @@ const seed = async () => {
           coordinates: { lat: -1.9502, lng: 30.0591 },
         },
       ],
+      zone: {
+        address: "Kigali Convention Centre Area, Kimihurura",
+        coordinates: { lat: -1.9502, lng: 30.0591 },
+      },
     },
 
     {
@@ -191,6 +195,10 @@ const seed = async () => {
           coordinates: { lat: -1.9445, lng: 30.061 },
         },
       ],
+      zone: {
+        address: "Downtown Kigali CBD, near UTC",
+        coordinates: { lat: -1.9445, lng: 30.061 },
+      },
     },
 
     {
@@ -212,6 +220,10 @@ const seed = async () => {
           coordinates: { lat: -1.9578, lng: 30.1092 },
         },
       ],
+      zone: {
+        address: "Amahoro Stadium Area, Remera",
+        coordinates: { lat: -1.9578, lng: 30.1092 },
+      },
     },
 
     {
@@ -233,6 +245,10 @@ const seed = async () => {
           coordinates: { lat: -1.9425, lng: 30.0625 },
         },
       ],
+      zone: {
+        address: "Rwanda Development Board Area, Kigali",
+        coordinates: { lat: -1.9425, lng: 30.0625 },
+      },
     },
 
     {
@@ -254,6 +270,10 @@ const seed = async () => {
           coordinates: { lat: -1.9801, lng: 30.1105 },
         },
       ],
+      zone: {
+        address: "Nyanza Bus Terminal Area, Kicukiro",
+        coordinates: { lat: -1.9801, lng: 30.1105 },
+      },
     },
 
     {
@@ -275,6 +295,10 @@ const seed = async () => {
           coordinates: { lat: -1.9735, lng: 30.0478 },
         },
       ],
+      zone: {
+        address: "Nyamirambo Market Area",
+        coordinates: { lat: -1.9735, lng: 30.0478 },
+      },
     },
 
     {

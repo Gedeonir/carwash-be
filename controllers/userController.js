@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const { success, notFound, paginated, badRequest, created } = require("../utils/response");
 const { asyncHandler } = require("../middlewares/error");
+const { suggestWashers } = require("../utils/suggestWashers");
 
 // ══════════════════════════════════════════════════════════
 // USER CONTROLLER (admin)
@@ -96,11 +97,18 @@ const createWasher = asyncHandler(async (req, res) => {
     ID: id,
   });
 
-  // Don't return password
   const safe = washer.toObject();
   delete safe.password;
 
   created(res, { washer: safe }, "Washer created successfully");
+});
+
+const getWasherSuggestions = asyncHandler(async (req, res) => {
+  const { date, time, location } = req.body;
+
+  const washers = await suggestWashers({ date, time, location });
+
+  res.json({ washers });
 });
 
 module.exports = {
@@ -109,4 +117,5 @@ module.exports = {
   updateUser,
   getWashers,
   createWasher,
+  getWasherSuggestions
 };
