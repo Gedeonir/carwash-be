@@ -1,7 +1,7 @@
 const express = require("express");
 const {
   register, login, guestLogin, refreshToken, logout,
-  getMe, updateMe, changePassword, forgotPassword, resetPassword,
+  getMe, updateMe, changePassword, forgotPassword, resetPassword,verifyEmail
 } = require("../controllers/authController");
 const {
   createBooking, getBookings, getBooking, updateStatus,
@@ -46,6 +46,7 @@ auth.put ("/me",               protect, updateMe);
 auth.put ("/change-password",  protect, changePassword);
 auth.post("/forgot-password",  forgotPassword);
 auth.post("/reset-password/:token", resetPassword);
+auth.patch("/verify-email/:token", verifyEmail);
 
 // ══════════════════════════════════════════════════════════
 // SERVICES  /api/services

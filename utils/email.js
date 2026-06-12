@@ -11,10 +11,10 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendEmail = async ({ to, subject, html }) => {
-  if (process.env.NODE_ENV === "development") {
-    console.log(`📧 [DEV] Email to ${to}: ${subject}`);
-    return;
-  }
+  // if (process.env.NODE_ENV === "development") {
+  //   console.log(`📧 [DEV] Email to ${to}: ${subject}`);
+  //   return;
+  // }
   await transporter.sendMail({
     from: process.env.EMAIL_FROM,
     to,
@@ -52,10 +52,10 @@ const confirmAccount = (user, confirmUrl) => ({
   html: `
     <div style="font-family:sans-serif;max-width:480px;margin:auto;padding:32px">
       <h2 style="color:#F5C542">Ikinamba.</h2>
-      <h3>Password reset request</h3>
+      <h3>Verify your email</h3>
       <p>Hi ${user.name},</p>
-      <p>Click the button below to reset your password. This link expires in 10 minutes.</p>
-      <a href="${confirmUrl}" style="display:inline-block;margin:16px 0;padding:12px 24px;background:#F5C542;color:#0A0A0A;border-radius:8px;text-decoration:none;font-weight:600">ConfirmAccount</a>
+      <p>Click the button below to verify your email address. This link expires in 10 minutes.</p>
+      <a href="${confirmUrl}" style="display:inline-block;margin:16px 0;padding:12px 24px;background:#F5C542;color:#0A0A0A;border-radius:8px;text-decoration:none;font-weight:600">Verify email</a>
       <p style="color:#888;font-size:13px">If you didn't request this, ignore this email.</p>
     </div>
   `,

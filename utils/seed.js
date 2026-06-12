@@ -134,7 +134,7 @@ const seed = async () => {
   ]);
   console.log("🗑️  Cleared existing data");
 
-  // ── Services ───────────────────────────────────────────
+//   // ── Services ───────────────────────────────────────────
   const services = await Service.insertMany(SERVICES);
   console.log(`✅ Created ${services.length} services`);
 
@@ -146,6 +146,7 @@ const seed = async () => {
     role: "admin",
     phone: "+250 788 000 000",
     isActive: true,
+    isVerified: true,
   });
   console.log(`✅ Created admin: ${admin.email} / password: Admin123!`);
 
